@@ -124,7 +124,7 @@ export const ProfessionalSection: React.FC = () => {
                               src={foto}
                               alt={`${titulo}, ${m.role.toLowerCase()} de ${CLINIC.name}`}
                               loading="lazy"
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover object-[50%_15%]"
                             />
                           ) : (
                             <div className="w-full h-full bg-gradient-to-br from-sky-50 to-violet-100 flex flex-col items-center justify-center gap-2 text-sky-400">
@@ -136,11 +136,11 @@ export const ProfessionalSection: React.FC = () => {
                           )}
                         </div>
                         <div className="relative -mt-8 mx-6 rounded-2xl bg-white shadow-xl shadow-sky-900/10 border border-violet-100 px-5 py-4 text-center">
-                          <h3 className={`text-xl font-extrabold ${m.name ? 'text-slate-900' : 'text-slate-400 italic'}`}>
-                            {m.name ?? 'Nombre y apellido'}
+                          <h3 className={`text-xl font-extrabold ${m.name || foto ? 'text-slate-900' : 'text-slate-400 italic'}`}>
+                            {m.name ?? (foto ? m.role : 'Nombre y apellido')}
                           </h3>
                           <p className="text-sm text-sky-700 font-semibold mt-0.5">
-                            {`${m.role} · ${CLINIC.name}`}
+                            {m.name || !foto ? `${m.role} · ${CLINIC.name}` : CLINIC.name}
                           </p>
                         </div>
                       </div>

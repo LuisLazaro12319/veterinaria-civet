@@ -148,7 +148,8 @@ export const PACIENTES_FOTOS: string[] = [
 
 // Nosotros: el equipo y una tarjeta de pacientes con cuadros para fotos. Nombres y fotos: A CONFIRMAR con la veterinaria.
 export const TEAM: TeamMember[] = [
-  { role: 'Médicos veterinarios', name: null, photo: null },
+  // Sin nombre: no lo sabemos todavía (A CONFIRMAR). La tarjeta muestra solo el rol.
+  { role: 'Médica veterinaria', name: null, photo: 'images/doctora-civet.jpg' },
   {
     role: 'Nuestros pacientes',
     name: null,

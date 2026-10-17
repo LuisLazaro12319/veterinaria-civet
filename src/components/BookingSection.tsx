@@ -43,9 +43,26 @@ export const BookingSection: React.FC = () => {
   return (
     <section
       id="turnos"
-      className="py-20 lg:py-24 bg-gradient-to-br from-sky-600 via-sky-500 to-violet-500 border-b border-sky-200"
+      className="relative overflow-hidden py-20 lg:py-24 pb-52 lg:pb-64 bg-gradient-to-br from-sky-600 via-sky-500 to-violet-500 border-b border-sky-200"
     >
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Fondo de mascotas en el pasto, pegado abajo y difuminado hacia arriba para mezclarse con el degradado */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-[340px] sm:h-[420px] lg:h-[540px] pointer-events-none"
+        style={{
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, #000 45%)',
+          maskImage: 'linear-gradient(to bottom, transparent 0%, #000 45%)',
+        }}
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}images/fondo-formulario.jpg`}
+          alt=""
+          loading="lazy"
+          className="w-full h-full object-cover object-[8%_100%] lg:object-center"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 text-white">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3">
             Pedí tu turno por WhatsApp
