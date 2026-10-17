@@ -30,9 +30,9 @@ export const CLINIC = {
   googleScope: '',
   // Texto en primera persona armado con la descripción de su Instagram.
   about:
-    'En Clínica Veterinaria Civet somos una clínica integral veterinaria de Virrey del Pino, sobre la Avenida Brigadier General Juan Manuel de Rosas. Atendemos clínica y cirugías, y contamos con ecografía, radiografías digitales, análisis de laboratorio y especialidades médicas para el cuidado de tu mascota.',
+    'En Clínica Veterinaria Civet somos una clínica integral veterinaria de Virrey del Pino, sobre la Avenida Brigadier General Juan Manuel de Rosas. Atendemos clínica y cirugías, y contamos con semi internación, ecografía, radiografías digitales, análisis de laboratorio y especialidades como dermatología, traumatología y oncología para el cuidado de tu mascota.',
   // Foto principal del inicio (ruta dentro de /public); null muestra una ilustración con huellitas.
-  photo: null as string | null,
+  photo: 'images/hero-civet.jpg' as string | null,
   servicesSummary: 'clínica, cirugías, ecografías, radiografías digitales y laboratorio para tu mascota',
   paymentMethods: [] as string[],
   hoursSummary: 'Lunes a sábado de 9 a 18 hs',
@@ -90,7 +90,7 @@ export const BRANCHES: Branch[] = [
     mapQuery: '-34.8216223,-58.6426373',
     whatsapp: '541158292251',
     whatsappDisplay: '11 5829-2251',
-    photo: null,
+    photo: 'images/sucursal-civet.jpg',
     video: null,
     showSchedule: true,
   },
@@ -138,7 +138,13 @@ export interface TeamMember {
 
 // Fotos de los pacientes (ruta dentro de /public). Mientras esté vacía se muestran 6 cuadros reservados;
 // con fotos, se muestran solo las que hay.
-export const PACIENTES_FOTOS: string[] = [];
+export const PACIENTES_FOTOS: string[] = [
+  'images/paciente-1.jpg',
+  'images/paciente-2.jpg',
+  'images/paciente-3.jpg',
+  'images/paciente-4.jpg',
+  'images/paciente-5.jpg',
+];
 
 // Nosotros: el equipo y una tarjeta de pacientes con cuadros para fotos. Nombres y fotos: A CONFIRMAR con la veterinaria.
 export const TEAM: TeamMember[] = [
@@ -172,8 +178,9 @@ export interface ServiceItem {
     | 'heartpulse';
 }
 
-// Los cinco primeros salen de la descripción de su Instagram (clínica y cirugías, ecografía, radiografías digitales,
-// análisis de laboratorio, especialidades médicas). Vacunación y desparasitación: A CONFIRMAR con la veterinaria.
+// Salen de la descripción de su Instagram y de los carteles de la vidriera de su local (clínica, análisis de
+// laboratorio, semi internación, cirugía, dermatología, traumatología, oncología, ecografía, rayos X).
+// Vacunación y desparasitación: A CONFIRMAR con la veterinaria.
 export const SERVICES: ServiceItem[] = [
   {
     id: 'clinica',
@@ -188,16 +195,10 @@ export const SERVICES: ServiceItem[] = [
     icon: 'heartpulse',
   },
   {
-    id: 'ecografia',
-    name: 'Ecografía',
-    description: 'Estudio por imágenes para diagnosticar y planificar el tratamiento de tu mascota.',
-    icon: 'layers',
-  },
-  {
-    id: 'radiografias',
-    name: 'Radiografías digitales',
-    description: 'Radiografías digitales para ver con claridad lo que necesita tu mascota.',
-    icon: 'sparkles',
+    id: 'semi-internacion',
+    name: 'Semi internación',
+    description: 'Cuidado y seguimiento de tu mascota mientras se recupera, con control del equipo.',
+    icon: 'shield',
   },
   {
     id: 'laboratorio',
@@ -206,9 +207,33 @@ export const SERVICES: ServiceItem[] = [
     icon: 'activity',
   },
   {
-    id: 'especialidades',
-    name: 'Especialidades médicas',
-    description: 'Atención de especialistas para los casos que necesitan una mirada más específica.',
+    id: 'ecografia',
+    name: 'Ecografía',
+    description: 'Estudio por imágenes para diagnosticar y planificar el tratamiento de tu mascota.',
+    icon: 'layers',
+  },
+  {
+    id: 'rayos-x',
+    name: 'Radiografías digitales (rayos X)',
+    description: 'Radiografías digitales para ver con claridad lo que necesita tu mascota.',
+    icon: 'sparkles',
+  },
+  {
+    id: 'dermatologia',
+    name: 'Dermatología',
+    description: 'Atención de la piel y el pelaje de tu mascota: alergias, picazón y más.',
+    icon: 'smile',
+  },
+  {
+    id: 'traumatologia',
+    name: 'Traumatología',
+    description: 'Atención de huesos y articulaciones, después de golpes, caídas o problemas al caminar.',
+    icon: 'anchor',
+  },
+  {
+    id: 'oncologia',
+    name: 'Oncología',
+    description: 'Diagnóstico y acompañamiento de tu mascota ante un tumor o una enfermedad oncológica.',
     icon: 'gem',
   },
   {
@@ -221,10 +246,9 @@ export const SERVICES: ServiceItem[] = [
     id: 'desparasitacion',
     name: 'Desparasitación',
     description: 'Control de parásitos internos y externos para que tu mascota esté protegida.',
-    icon: 'shield',
+    icon: 'paw',
   },
 ];
-
 export interface ScheduleDay {
   dayName: string;
   dayIndex: number; // 0 = domingo ... 6 = sábado
