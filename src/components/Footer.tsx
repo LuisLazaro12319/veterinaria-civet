@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
               src={`${import.meta.env.BASE_URL}images/logo-completo.png`}
               alt={`Logo de ${CLINIC.name}`}
               loading="lazy"
-              className="w-56 h-auto -ml-5"
+              className="w-72 h-auto -ml-14 -my-5"
               style={{
                 WebkitMaskImage:
                   'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent), linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent)',
